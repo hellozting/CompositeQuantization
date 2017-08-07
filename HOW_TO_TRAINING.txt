@@ -1,0 +1,43 @@
+1. Algorithm 
+
+We provide the implementation of four vector quantization methods, the process of (3) Non-constrained Composite Quantization and (4) Composite Quantization is described in our paper. 
+
+(1). K-means 
+
+    For this classical clustering method, we offer two choices to perform k-means. One is the most common algorithm called Lloyd's algorithm (the centers can be initialized using random selection or k-means++). The other is Fast k-means proposed by J. Wang et al. in 2012. We suggest to use the second one to accelerate the k-means quantization process.
+	
+(2). Product Quantization
+
+    Product Quantization divides the data space into several subspaces and performs k-means quantization in each subspace. The way of partition is natural (i.e. successive dimensions are in the same subspace) if it is not specified from outside.
+	
+(3). Non-constrained Composite Quantization
+
+    Non-constrained Composite Quantization is mentioned in our paper as a initialization for Composite Quantization. It has a lower vector reconstruction error than composite quantization since the constant constraint added on the composite quantization has been ignored.
+	
+(4). Composite Quantization
+
+    Composite Quantization jointly optimize the dictionary and binary codes through the training process.
+
+	
+	
+2. File formats
+
+Our code uses four file formats. 
+
+Usually, the data points are assumed to be .fvecs or .bvecs file formats and the ground truth are assumed to be .ivecs file format developed by INRIA LEAR and TEXMEX groups. 
+
+The fourth file format we referred in our code is BINARY, described as follows.
+
+(1) dictionary
+    We assume that dictionary is in the following format:
+	4 bytes (one int32) -- the number of dictionary elements (M*K)
+	4 bytes (one int32) -- the dimension of element (d)
+	4*M*K*d bytes (M*K*d floats) -- the dictionary element entries one after another
+	
+(2) binary codes 
+    We assume that binary codes are in the following format:
+	4 bytes (one int32) -- the number of points (N)
+	4 bytes (one int32) -- the number of indexes (M)
+	4*N*M bytes (N*M int32) or N*M bytes (N*M unsigned char) -- binary code entries one after another
+
+

@@ -1,0 +1,13 @@
+There are three steps to build our project.
+
+1: Install third-part software
+  To use our code, you should install some third-part software:
+	(1). CMake
+	(2). IntelMKL 
+	
+2: Change directory in CMakeLists.txt file
+  You should insert path to BLAS (MKL) sources and libraries in file CMakeLists.txt.
+  
+3: Build project
+	(1). create folder "build" in directory with source files
+	(2). run "build_project.bat" or you can use CMake GUI to build

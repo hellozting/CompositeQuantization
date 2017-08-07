@@ -1,0 +1,35 @@
+1. Algorithm 
+
+The search process is conducted via linear scan. 
+
+Given a query point, the search algorithm traverses all the data points and hold the R points whose distances to the query is R smallest. After linear scan, the reserved R points are sorted in the order of increasing distance and regarded as the R nearest neighbors to the query.
+
+
+
+2. File formats
+
+Our code uses four file formats. 
+
+Usually, the query points are assumed to be .fvecs or .bvecs file formats and the ground truth nearest neighbors are assumed to be .ivecs file format developed by INRIA LEAR and TEXMEX groups. 
+
+The fourth file format we referred in our code is BINARY, described as follows.
+
+(1) dictionary
+    We assume that dictionary is in the following format:
+	4 bytes (one int32) -- the number of dictionary elements (M*K)
+	4 bytes (one int32) -- the dimension of element (d)
+	4*M*K*d bytes (M*K*d floats) -- the dictionary element entries one after another
+	
+(2) binary codes 
+    We assume that binary codes are in the following format:
+	4 bytes (one int32) -- the number of points (N)
+	4 bytes (one int32) -- the number of indexes (M)
+	4*N*M bytes (N*M int32) or N*M bytes (N*M unsigned char) -- binary code entries one after another
+	
+(3) retrieval results 
+    We assume that retrieval results are in the following format:
+	4 bytes (one int32) -- the number of queries (Q)
+	4 bytes (one int32) -- the length of list retrieved (R)
+	4*Q*R bytes(Q*R int32) -- retrieval results entries one after another
+
+
