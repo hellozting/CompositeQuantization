@@ -1,0 +1,43 @@
+PQ=0
+NCQ=0
+CQ=0
+Search=1
+
+# global parameters
+points_count=1000000
+dictionaries_count=8
+words_count=256
+space_dimension=128
+points_file=\\4wzh122\d$\code\MATLAB\sift\sift_base.fvecs
+output_file_prefix=\\4wzh122\d$\temp\
+max_iter=30
+
+# PQ parameters
+distortion_tol=0.0001
+read_partition=0
+partition_file=
+# if 101 then using closure cluster, else lloyd kmeans
+kmeans_method=101
+
+# NCQ and CQ parameters
+num_sep=20
+# initial from outside, if 1 then set the file name of dictinary and codes
+initial_from_outside=0
+dictionary_file=
+binary_codes_file=
+
+# CQ parameters
+mu=0.0004
+
+# Search parameters
+queries_count=10000
+groundtruth_length=100
+result_length=100
+queries_file=\\4wzh122\d$\code\MATLAB\sift\sift_query.fvecs
+groundtruth_file=\\4wzh122\d$\code\MATLAB\sift\sift_groundtruth.ivecs
+trained_dictionary_file=D:\temp\D
+trained_binary_codes_file=D:\temp\B
+output_retrieved_results_file=\\4wzh122\d$\temp\results
+
+
+
